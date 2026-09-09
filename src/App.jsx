@@ -1,4 +1,5 @@
 import ReactLogo from './assets/logo.png'
+import { useState } from "react";
 import './styles.css'
 const content = [
   [
@@ -26,35 +27,40 @@ const content = [
   ]
 ];
 
-function App() {
+export default function App() {
+  const [activeContentIndex, setActiveContentIndex] = useState(0);
 
   return (
     <div>
-    <header>
-      <img src={ReactLogo} alt="React logo" />
-      <div>
-        <h1>React.js</h1>
-        <p>i.e., using the React library for rendering the UI</p>
-      </div>
-    </header>
+      <header>
+        <img src="react-logo-xs.png" alt="React logo" />
+        <div>
+          <h1>React.js</h1>
+          <p>i.e., using the React library for rendering the UI</p>
+        </div>
+      </header>
 
-    <div id="tabs">
-      <menu>
-        <button>Why React?</button>
-        <button>Core Features</button>
-        <button>Related Resources</button>
-      </menu>
+      <div id="tabs">
+        <menu>
+          <button onClick={() => setActiveContentIndex(0)}>
+            Why React?
+          </button>
+          <button onClick={() => setActiveContentIndex(1)}>
+            Core Features
+          </button>
+          <button onClick={() => setActiveContentIndex(2)}>
+            Related Resources
+          </button>
+        </menu>
 
-      <div id="tab-content">
-        <ul>
-          {content[0].map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+        <div id="tab-content">
+          <ul>
+            {content[activeContentIndex].map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  )
+  );
 }
-
-export default App
