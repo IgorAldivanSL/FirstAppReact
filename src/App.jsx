@@ -33,7 +33,7 @@ export default function App() {
   return (
     <div>
       <header>
-        <img src="react-logo-xs.png" alt="React logo" />
+        <img src={ReactLogo} alt="React logo" />
         <div>
           <h1>React.js</h1>
           <p>i.e., using the React library for rendering the UI</p>
@@ -42,13 +42,22 @@ export default function App() {
 
       <div id="tabs">
         <menu>
-          <button onClick={() => setActiveContentIndex(0)}>
+          <button
+            className={activeContentIndex === 0 ? "active" : ""}
+            onClick={() => setActiveContentIndex(0)}
+          >
             Why React?
           </button>
-          <button onClick={() => setActiveContentIndex(1)}>
+          <button
+            className={activeContentIndex === 1 ? "active" : ""}
+            onClick={() => setActiveContentIndex(1)}
+          >
             Core Features
           </button>
-          <button onClick={() => setActiveContentIndex(2)}>
+          <button
+            className={activeContentIndex === 2 ? "active" : ""}
+            onClick={() => setActiveContentIndex(2)}
+          >
             Related Resources
           </button>
         </menu>
