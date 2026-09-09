@@ -1,6 +1,7 @@
 import ReactLogo from './assets/logo.png'
 import { useState } from "react";
-import './styles.css'
+import "./styles.css";
+
 const content = [
   [
     "React is extremely popular",
@@ -59,6 +60,12 @@ export default function App() {
             onClick={() => setActiveContentIndex(2)}
           >
             Related Resources
+          </button>
+          <button
+            className={activeContentIndex === 3 ? "active" : ""}
+            onClick={() => setActiveContentIndex(3)}
+          >
+            React vs JS
           </button>
         </menu>
 
